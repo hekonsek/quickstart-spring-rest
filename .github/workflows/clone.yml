@@ -24,4 +24,4 @@ jobs:
     - name: Clone repository
       env:
         GH_TOKEN: ${{ github.token }}
-      run: gh repo create my-project --private --source=. --remote=upstream
+      run: gh repo create ${{ github.event.inputs.project }} --private --source=. --remote=upstream
