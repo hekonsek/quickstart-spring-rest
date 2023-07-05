@@ -20,7 +20,7 @@ jobs:
     - name: Create new repository
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: gh repo create ${{ github.event.inputs.project }} --private --source=. --push
+      run: gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream
     - name: Push copy of project
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
