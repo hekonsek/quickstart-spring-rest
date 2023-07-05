@@ -9,12 +9,11 @@ on:
         description: Name of the project to create
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
     - uses: actions/checkout@v3
     - name: Clone repository
       env:
-        GH_TOKEN: ${{ github.token }}
+        GH_TOKEN: ${{ secrets.TOKEN }}
       run: gh repo create ${{ github.event.inputs.project }} --private --source=. --remote=upstream
