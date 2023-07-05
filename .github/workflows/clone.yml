@@ -13,7 +13,11 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-    - name: Clone repository
+    - name: Create new repository
       env:
         GH_TOKEN: ${{ secrets.TOKEN }}
-      run: gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream
+      run: gh repo create ${{ github.event.inputs.project }} --private
+    - name: Push copy of project
+      run: |
+        git remote add upstream git@github.com:${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git push main upstream
