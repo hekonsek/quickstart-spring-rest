@@ -23,6 +23,10 @@ jobs:
       run: gh repo create ${{ github.event.inputs.project }} --private
     - name: Push copy of project
       run: |
-        git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git push https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}
 #        git remote add upstream https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
 #        git push upstream main
+
+# Token:
+#  public_repo
+#  write:org
