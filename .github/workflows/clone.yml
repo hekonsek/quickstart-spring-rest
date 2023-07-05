@@ -25,7 +25,7 @@ jobs:
       run: |
         git remote rm origin
         git remote add origin https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push
+        git push --set-upstream origin main
 #        git remote add upstream https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
 #        git push upstream main
 
