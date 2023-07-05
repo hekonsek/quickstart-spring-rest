@@ -13,9 +13,13 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
+    - name: Reconfigure git to use HTTP authentication
+      env:
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
+      run: git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/".insteadOf ssh://git@github.com/
     - name: Create new repository
       env:
-        GH_TOKEN: ${{ secrets.TOKEN }}
+        GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: gh repo create ${{ github.event.inputs.project }} --private
     - name: Push copy of project
       run: |
