@@ -41,8 +41,8 @@ jobs:
 #        git push -u origin main
     - name: Push copy of project
       run: |
-        git remote add ups https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push --no-thin ups
+        git remote add ups https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git push ups
  
 
 ### Token:
