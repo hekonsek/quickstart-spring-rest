@@ -13,10 +13,6 @@ jobs:
 
     steps:
     - uses: actions/checkout@v3
-#    - name: Reconfigure git to use HTTP authentication
-#      env:
-#        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-#      run: git config --global url."https://${{ secrets.GH_TOKEN }}@github.com/".insteadOf ssh://git@github.com/
     - name: Create new repository
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
@@ -26,10 +22,10 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        git remote rm origin
-        git remote add origin https://hekonsek:$GH_TOKEN@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push --set-upstream origin main
+        git remote add upstream https://$GH_TOKEN@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git push upstream main
 
 ### Token:
-#  public_repo
+#  all repo
+# all workflow
 #  write:org
