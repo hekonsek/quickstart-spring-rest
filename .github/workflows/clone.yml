@@ -38,12 +38,12 @@ jobs:
 #      run: |
 #        git remote remove origin
 #        git remote add origin https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-#        git clone
 #        git push -u origin main
     - name: Push copy of project
-      run: | 
-        git push
-
+      run: |
+        git remote add ups https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git push -u ups main 
+ 
 
 ### Token:
 #  all repo
