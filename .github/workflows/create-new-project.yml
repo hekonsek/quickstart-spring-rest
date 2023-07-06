@@ -1,4 +1,4 @@
-name: Clone
+name: Create new project
 
 on:
   workflow_dispatch:
@@ -7,6 +7,7 @@ on:
         required: true
         type: string
         description: Name of the project to create
+
 jobs:
   build:
     runs-on: ubuntu-latest
