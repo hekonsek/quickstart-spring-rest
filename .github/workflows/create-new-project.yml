@@ -13,17 +13,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v3
-      with:
-        token: ${{ secrets.GH_TOKEN }}
-        fetch-depth: 0
-    - name: Create new repository
-      env:
-        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-      run: | 
-        gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream 
-
-### Token:
-# all repo
-# all workflow
-# write:org
+      - uses: hekonsek/action-create-new-project@main
+        with:
+          project: ${{ github.event.inputs.project }}
+          token: ${{ secrets.GH_TOKEN }}
