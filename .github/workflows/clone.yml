@@ -23,7 +23,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: | 
-        gh repo create ${{ github.event.inputs.project }} --private
+        gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream
 #    - name: Pushes to another repository
 #      uses: cpina/github-action-push-to-another-repository@main
 #      env:
@@ -39,10 +39,10 @@ jobs:
 #        git remote remove origin
 #        git remote add origin https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
 #        git push -u origin main
-    - name: Push copy of project
-      run: |
-        git remote add ups https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push ups
+#    - name: Push copy of project
+#      run: |
+#        git remote add ups https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+#        git push ups
  
 
 ### Token:
