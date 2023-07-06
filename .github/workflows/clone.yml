@@ -1,7 +1,5 @@
 name: Clone
 
-permissions: write-all
-
 on:
   workflow_dispatch:
     inputs:
@@ -13,8 +11,6 @@ jobs:
   build:
     runs-on: ubuntu-latest
 
-    permissions: write-all
-
     steps:
     - uses: actions/checkout@v3
       with:
@@ -24,29 +20,9 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: | 
-        gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream
-#    - name: Pushes to another repository
-#      uses: cpina/github-action-push-to-another-repository@main
-#      env:
-#        API_TOKEN_GITHUB: ${{ secrets.GH_TOKEN }}
-#      with:
-#        source-directory: '.'
-#        destination-github-username: ${{ github.repository_owner }}
-#        destination-repository-name: ${{ github.event.inputs.project }}
-#    - name: Push copy of project
-#      env:
-#        GH_TOKEN: ${{ secrets.GH_TOKEN }}
-#      run: |
-#        git remote remove origin
-#        git remote add origin https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-#        git push -u origin main
-#    - name: Push copy of project
-#      run: |
-#        git remote add ups https://github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-#        git push ups
- 
+        gh repo create ${{ github.event.inputs.project }} --private --source=. --push --remote=upstream 
 
 ### Token:
-#  all repo
+# all repo
 # all workflow
-#  write:org
+# write:org
