@@ -22,7 +22,7 @@ jobs:
       env:
         GH_TOKEN: ${{ secrets.GH_TOKEN }}
       run: |
-        git remote add upstream https://$GH_TOKEN@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
+        git remote add upstream https://${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
         git push upstream main
 
 ### Token:
