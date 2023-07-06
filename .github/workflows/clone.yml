@@ -42,7 +42,7 @@ jobs:
     - name: Push copy of project
       run: |
         git remote add ups https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push -u ups main 
+        git push --no-thin ups
  
 
 ### Token:
