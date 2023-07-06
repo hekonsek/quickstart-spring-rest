@@ -30,6 +30,6 @@ jobs:
         git remote add origin https://hekonsek:$GH_TOKEN@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
         git push --set-upstream origin main
 
-# Token:
+## Token:
 #  public_repo
 #  write:org
