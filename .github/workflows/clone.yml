@@ -24,7 +24,7 @@ jobs:
       run: |
         git remote remove origin
         git remote add origin https://hekonsek:${{ secrets.GH_TOKEN }}@github.com/${{ github.repository_owner }}/${{ github.event.inputs.project }}.git
-        git push -u origin
+        git push -u origin main
 
 ### Token:
 #  all repo
